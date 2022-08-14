@@ -1,20 +1,36 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                // 
-            }
+   agent any
+   stages {
+        stages (`BUILD`) {
+           steps {
+                sh '''
+                   #!/bin/bash
+                     pwd
+                     ls
+                     echo " this is a BUILD stage"
+                    '''
+          }
         }
-        stage('Test') { 
-            steps {
-                // 
-            }
+        stages (`DEPLOY`) {
+           steps {
+                  echo " this is a DEPLOY stage "
+          }
         }
-        stage('Deploy') { 
-            steps {
-                // 
-            }
+        stages (`TESTING 1`) {
+           steps {
+                 sh 'echo " this is testing1 stage"
+           }
         }
+        stages (`TESTING 2`) {
+           steps {
+                sh '''
+                  echo "this is testing2 stage"
+                  '''
+           
+             }
+       }
     }
+
 }
+
+
