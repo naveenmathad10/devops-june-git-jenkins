@@ -21,7 +21,7 @@ pipeline {
           }
         }
         stage('TESTING1') {
-         agent { label 'salve2' }
+         agent { label 'slave-node-c-project' }
            steps {
                  sh 'echo " this is testing1 stage"'
                  sh 'sleep 5'
