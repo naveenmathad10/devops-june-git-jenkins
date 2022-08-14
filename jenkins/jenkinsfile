@@ -1,7 +1,8 @@
 pipeline {
-   agent { label 'slave-maven'}
+   agent none
    stages {
         stage('BUILD') {
+        agent any
            steps {
                 sh '''
                    #!/bin/bash
@@ -13,18 +14,21 @@ pipeline {
           }
         }
         stage('DEPLOY') {
+         agent { label 'slave-maven'}
            steps {
                   echo " this is a DEPLOY stage "
                   sh 'sleep 5'
           }
         }
         stage('TESTING1') {
+         agent { label 'slave-node-c-project'}
            steps {
                  sh 'echo " this is testing1 stage"'
                  sh 'sleep 5'
            }
         }
         stage('TESTING2') {
+        agen { label 'master'}
            steps {
                 sh '''
                   echo "this is testing2 stage"
