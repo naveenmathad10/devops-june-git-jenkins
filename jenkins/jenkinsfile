@@ -18,7 +18,7 @@ pipeline {
         }
         stages ('TESTING 1') {
            steps {
-                 sh 'echo " this is testing1 stage"
+                 sh 'echo " this is testing1 stage"'
            }
         }
         stages ('TESTING 2') {
