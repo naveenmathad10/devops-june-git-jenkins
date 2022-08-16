@@ -1,3 +1,5 @@
+echo $(CHOICE)
+
 pipeline {
    agent none
    stages {
