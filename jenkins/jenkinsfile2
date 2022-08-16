@@ -1,0 +1,33 @@
+pipeline {
+   agent any
+   stages {
+       stage('all'){
+         when {
+         branch 'master'
+         }
+         parallel {
+        stage('BUILD') {
+       agent { label 'master'}
+           steps {
+                sh '''
+                   #!/bin/bash
+                     pwd
+                     ls
+                     echo " this is a BUILD stage"
+                     sleep 5
+                    '''
+          }
+        }
+        stage('DEPLOY') {
+         agent { label 'master'}
+           steps {
+                  echo " this is a DEPLOY stage "
+                  sh 'sleep 5'
+          }
+        }
+       
+       }
+    }
+  }
+ }
+
