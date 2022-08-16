@@ -1,10 +1,10 @@
 pipeline {
    agent none
    stages {
-   stages { 
       stage('master') {
         when  {
               expression { choice == 'master' }
+              }
     stage('all'){
          parallel {
         stage('BUILD') {
@@ -31,5 +31,5 @@ pipeline {
     }
   }
 }
-}
+
 
