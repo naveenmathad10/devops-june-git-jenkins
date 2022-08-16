@@ -4,7 +4,7 @@ pipeline {
     stage('all'){
          parallel {
         stage('BUILD') {
-        agent any
+       agent { label 'master'}
            steps {
                 sh '''
                    #!/bin/bash
@@ -16,7 +16,7 @@ pipeline {
           }
         }
         stage('DEPLOY') {
-         agent { label 'slave-maven'}
+         agent { label 'master'}
            steps {
                   echo " this is a DEPLOY stage "
                   sh 'sleep 5'
