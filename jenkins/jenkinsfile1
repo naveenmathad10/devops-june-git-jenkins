@@ -1,7 +1,7 @@
 pipeline {
    agent none
    stages {
-      stage('master') {
+      stage('master choice') {
         when  {
               expression { choice == 'master' }
               }
