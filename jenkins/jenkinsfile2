@@ -3,7 +3,7 @@ pipeline {
    stages {
        stage('all'){
          when {
-          expression { choice == master }
+          expression { choice == "master" }
          }
          parallel {
         stage('BUILD') {
