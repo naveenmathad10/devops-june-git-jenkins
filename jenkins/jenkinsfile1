@@ -1,6 +1,10 @@
 pipeline {
    agent none
    stages {
+        stage('MASTER CHOICE'}
+           when{
+                 expression { CHOICE == MASTER }
+                 }
      stage('all'){
          parallel {
         stage('BUILD') {
